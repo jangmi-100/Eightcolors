@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/residence/main_layout}">
+<div layout:fragment="content-side" class="row my-5" id="global-content">
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 왼쪽 사이드바 -->
+            <style>
+                /* 사이드바 스타일 */
+                .sidebar {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 250px; /* 사이드바 너비 고정 */
+                    /*height: 50vh; !* 높이 고정 (화면 전체 높이에 맞춤) *!*/
+                    background-color: #f8f9fa;
+                    padding-top: 20px;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    box-shadow: 2px 0px 5px rgba(0,0,0,0.1);
+                    overflow-y: auto; /* 사이드바 내용이 넘칠 경우 스크롤 추가 */
+                }
+
+                .sidebar h4 {
+                    margin-bottom: 20px;
+                }
+
+                /* 페이지 내용 영역 */
+                .content {
+                    margin-left: 270px; /* 사이드바 오른쪽에 여백 추가 */
+                    padding: 20px;
+                }
+
+                /* 폼 체크박스 스타일 */
+                .form-check {
+                    margin-bottom: 10px;
+                }
+            </style>
+            </head>
+            <body>
+
+            <!-- 사이드바 -->
+            <aside class="sidebar">
+                <h4>숙소 유형 선택</h4>
+                <form>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="hotelCheck" />
+                        <label class="form-check-label" for="hotelCheck">호텔</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="resortCheck" />
+                        <label class="form-check-label" for="resortCheck">리조트</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="guesthouseCheck" />
+                        <label class="form-check-label" for="guesthouseCheck">게스트하우스</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="motelCheck" />
+                        <label class="form-check-label" for="motelCheck">모텔</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="bnbCheck" />
+                        <label class="form-check-label" for="bnbCheck">B&B</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="villaCheck" />
+                        <label class="form-check-label" for="villaCheck">빌라</label>
+                    </div>
+                </form>
+            </aside>
+
+
+
+
+        </div>
+    </div>
+
+    <!-- 스타일 추가 -->
+
+
+
+</div>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{bootstrap/bootstrap.min.css}" rel="stylesheet">
+    <script th:src="@{js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{js/member.js}"></script>
+</head>
+<body>
+<div class="container text-center">
+    <!-- 첫 번째 행 (헤더 역할) -->
+    <div class="row">
+
+            <div class="col-2">
+                <a th:href="main">
+                    <img src="/images/mainLogo.png" style="width: 100%; height: auto; max-width: 150px;">
+                </a>
+
+            </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-3">
+                <select name="type" class="form-select">
+                    <option value="title">장소</option>
+                    <option value="writer">지역</option>
+                    <option value="content">내용</option>
+                </select>
+                </div>
+                <div class="col-6">
+                    <input type="text" name="keyword" class="form-control"/>
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="검 색" class="btn btn-primary"/>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-auto">
+
+            <div class="row">
+                <div class="col">
+                <ul class="nav justify-content-end">
+                    <!-- 로그인 안 한 경우 로그인 버튼 표시 -->
+                    <li class="nav-item"><th:block th:unless="${session.isLogin}">
+                        <a class="nav-link" th:href="@{loginForm}">로그인</a>
+                    </th:block></li>
+
+                    <!-- 로그인한 경우 로그아웃 버튼 표시 -->
+                    <li class="nav-item"><th:block th:if="${session.isLogin}">
+                        <a class="nav-link" th:href="@{memberLogout}">로그아웃</a>
+                    </th:block></li>
+
+                    <li class="nav-item"><a class="nav-link" th:href="@{main}">Home</a></li>
+
+                    <!-- 로그인한 경우 정보 수정 페이지로 이동 -->
+                    <li class="nav-item"><th:block th:if="${session.isLogin}">
+                        <a class="nav-link" th:href="@{mypage}">마이 페이지</a>
+                    </th:block></li>
+                    <li class="nav-item"><a class="nav-link" href="#">고객 센터</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 두 번째 행 -->
+    <div class="row">
+        <div class="col-2">
+            <h4>숙소 유형 선택</h4>
+            <form>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hotelCheck" />
+                    <label class="form-check-label" for="hotelCheck">호텔</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="resortCheck" />
+                    <label class="form-check-label" for="resortCheck">리조트</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="guesthouseCheck" />
+                    <label class="form-check-label" for="guesthouseCheck">게스트하우스</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="motelCheck" />
+                    <label class="form-check-label" for="motelCheck">모텔</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="bnbCheck" />
+                    <label class="form-check-label" for="bnbCheck">B&B</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="villaCheck" />
+                    <label class="form-check-label" for="villaCheck">빌라</label>
+                </div>
+            </form>
+        </div>
+        <div class="col-10">
+            2 of 3
+        </div>
+    </div>
+
+    <!-- 세 번째 행 (푸터 역할) -->
+    <div class="row fixed-bottom">
+        <div class="col">
+            <div class="col text-center py-3">
+                <p>
+                    iT 2Team Final Project<br>
+                    출처 :
+                    <br>네이버: 지도, 소셜 로그인
+                    <br>카카오: 지도 API, 소셜 로그인
+                    <br>공공데이터 포털: 기상청 API
+                    <br>아이콘 제작자: Rian Maulana - Flaticon
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{bootstrap/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
