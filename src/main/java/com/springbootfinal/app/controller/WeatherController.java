@@ -1,28 +1,23 @@
 package com.springbootfinal.app.controller;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Map;
-
+import com.springbootfinal.app.domain.ResultDto;
+import com.springbootfinal.app.domain.WeatherDto;
+import com.springbootfinal.app.service.WeatherService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.springbootfinal.app.domain.LongWeatherDto;
-import com.springbootfinal.app.domain.ResultDto;
-import com.springbootfinal.app.domain.WeatherDto;
-import com.springbootfinal.app.service.WeatherService;
-
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -93,7 +88,7 @@ public class WeatherController {
 		model.addAttribute("baseDate", baseDate);
 		model.addAttribute("baseTime", baseTime);
 		model.addAttribute("fullBaseTime", fullBaseTime); // 전체 base_time을 추가
-		return "weather/index"; // index.html
+		return "weather/index"; // productmgmt.html
 	}
 
 	/* *

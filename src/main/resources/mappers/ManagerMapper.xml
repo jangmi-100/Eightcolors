@@ -11,11 +11,15 @@
 	지정할 때 @Mapper 애노테이션이 적용된 맵퍼 인터페이스의
 	완전한 클래스 이름(패키지를 포함한 이름)을 지정하면 된다.   
 -->
-<mapper namespace="com.springbootfinal.app.mapper.ResidenceMapper" >
-	<select id="residenceList" resultType="List">
-		select * from residence;
+<mapper namespace="com.springbootfinal.app.mapper.ManagerMapper" >
+	<select id="residenceList" resultType="ResidenceDto">
+		select * from residence ORDER BY resid_no ASC;
 	</select>
 
+	<select id="userList" resultType="UserAdminDto">
+		select * from users ORDER BY user_no ASC;
+
+	</select>
 </mapper>	
 
 
