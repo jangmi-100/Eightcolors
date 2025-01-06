@@ -28,5 +28,11 @@ public class ManagerController {
         model.addAttribute("uList",managerService.userList());
         return "manager/useradmin";
     }
+    
+    @GetMapping("/ordermgmt")
+    public String reservationList(Model model){
+        model.addAttribute("reList",managerService.reservationList());
+        return "manager/ordermgmt";
+    }
 
 }

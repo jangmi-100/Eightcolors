@@ -49,11 +49,11 @@
                                 상품관리
                             </a>
 
-                            <a class="nav-link" href="productmgmt.html">
+                            <a class="nav-link" href="/ordermgmt">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 주문관리
                             </a>
-                            <a class="nav-link" href="productmgmt.html">
+                            <a class="nav-link" href="/useradmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 회원관리
                             </a>
@@ -87,10 +87,7 @@
                         </form>
                     </div>
 
-                    <!-- 상품 등록 버튼 (오른쪽 정렬, 여백 추가) -->
-                    <div class="text-end mb-3 pe-5"> <!-- 오른쪽에 여백 추가 -->
-                        <button type="button" class="btn btn-success btn-sm">등록</button>
-                    </div>
+                   
 
                     <div class="card-body">
                         <table id="datatablesSimple" class="table table-bordered table-hover text-center">
@@ -105,7 +102,8 @@
                                 <th>우편번호</th>
                                 <th>주소</th>
                                 <th>상세주소</th>
-                                <th>로그인 매개체</th>
+                                <th>로그인 타입</th>
+                                <th>소셜로그인 아이디</th>
                                 <th>가입일</th>
                                 <th>포인트</th>
 
@@ -114,16 +112,18 @@
                             <tbody>
                             <tr th:block th:each="user, status: ${uList}" class="border-bottom">
                                 <td>[[ ${user.userNo} ]]</td>
-                                <td>[[ ${residence.id} ]]</td>
-                                <td>[[ ${residence.residAddress} ]]</td>
-                                <td>[[ ${residence.email} ]]</td>
-                                <td>[[ ${residence.phone} ]]</td>
-                                <td>[[ ${residence.phoneVerify} ]]</td>
-                                <td>[[ ${residence.zipcode} ]]</td>
-                                <td>[[ ${residence.discountRate} ]]</td>
-                                <td>[[ ${residence.discountedPrice} ]]</td>
-                                <td>[[ ${residence.rating} ]]</td>
-                                <td>[[ ${residence.residDate} ]]</td>
+                                <td>[[ ${user.id} ]]</td>
+                                 <td>[[ ${user.name} ]]</td>
+                                <td>[[ ${user.email} ]]</td>
+                                <td>[[ ${user.phone} ]]</td>
+                                <td>[[ ${user.phoneVerify} ]]</td>
+                                <td>[[ ${user.zipcode} ]]</td>
+                                <td>[[ ${user.address1} ]]</td>
+                                <td>[[ ${user.address2} ]]</td>
+                                <td>[[ ${user.loginType} ]]</td>
+                                <td>[[ ${user.providerId} ]]</td>
+                                <td>[[ ${user.regDate} ]]</td>
+                                <td>[[ ${user.point} ]]</td>
                             </tr>
                             </tbody>
                         </table>

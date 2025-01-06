@@ -67,12 +67,12 @@
                 <div class="card mb-4 mx-3 my-3">
                     <!-- 상품관리 제목 -->
                     <div class="page-header text-center mt-3">
-                        <h1 class="display-6">상품관리</h1>
+                        <h1 class="display-6">주문관리</h1>
                     </div>
                     <!-- 상품관리 게시판 -->
                     <div class="card-header bg-primary text-white">
                         <i class="fas fa-table me-1"></i>
-                        상품관리 게시판
+                        주문관리 게시판
                     </div>
 
                     <!-- 검색 폼 추가 -->
@@ -96,34 +96,24 @@
                         <table id="datatablesSimple" class="table table-bordered table-hover text-center">
                             <thead class="table-light">
                             <tr class="border-bottom">
+                                <th>결제번호</th>
+                                <th>회원번호</th>
                                 <th>숙소번호</th>
-                                <th>숙소명</th>
-                                <th>숙소주소</th>
-                                <th>유형</th>
-                                <th>체크인 날짜</th>
-                                <th>체크아웃 날짜</th>
-                                <th>할인전 가격</th>
-                                <th>할인율</th>
-                                <th>할인후 가격</th>
-                                <th>평점</th>
-                                <th>등록일</th>
+                                <th>가격</th>
+                                <th>사용된 포인트</th>
+                                <th>결제일자</th>
                                 <th>수정</th>
                                 <th>삭제</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr th:block th:each="residence, status: ${rList}" class="border-bottom">
-                                <td>[[ ${residence.residNo} ]]</td>
-                                <td>[[ ${residence.residName} ]]</td>
-                                <td>[[ ${residence.residAddress} ]]</td>
-                                <td>[[ ${residence.residType} ]]</td>
-                                <td>[[ ${residence.checkinDate} ]]</td>
-                                <td>[[ ${residence.checkoutDate} ]]</td>
-                                <td>[[ ${residence.totalPrice} ]]</td>
-                                <td>[[ ${residence.discountRate} ]]</td>
-                                <td>[[ ${residence.discountedPrice} ]]</td>
-                                <td>[[ ${residence.rating} ]]</td>
-                                <td>[[ ${residence.residDate} ]]</td>
+                            <tr th:block th:each="reservation, status: ${reList}" class="border-bottom">
+                                <td>[[ ${reservation.payNo} ]]</td>
+                                <td>[[ ${reservation.userNo} ]]</td>
+                                <td>[[ ${reservation.residNo} ]]</td>
+                                <td>[[ ${reservation.totalPrice} ]]</td>
+                                <td>[[ ${reservation.usePoint} ]]</td>
+                                <td>[[ ${reservation.payDate} ]]</td>
                                 <td><button type="button" class="btn btn-primary btn-sm">수정</button></td>
                                 <td><button type="button" class="btn btn-danger btn-sm">삭제</button></td>
                             </tr>
