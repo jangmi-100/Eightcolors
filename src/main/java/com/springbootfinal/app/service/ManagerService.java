@@ -7,7 +7,9 @@ import com.springbootfinal.app.mapper.ManagerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ManagerService {
@@ -19,8 +21,18 @@ public class ManagerService {
         return managerMapper.residenceList();
     };
 
-    public List<UserAdminDto> userList(){
-        return managerMapper.userList();
+    public Map<String, Object> userList(String search){
+
+        boolean searchOption = search.equals("null") ?false:true;
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        List<UserAdminDto> uList=managerMapper.userList(search);
+
+        if(searchOption){
+            modelMap.put("search",search);
+        }
+        modelMap.put("uList", uList);
+        modelMap.put("searchOption", searchOption);
+        return modelMap;
     }
     
     public List<ReservationDto> reservationList(){

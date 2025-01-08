@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ManagerController {
@@ -24,8 +26,10 @@ public class ManagerController {
     }
 
     @GetMapping("/useradmin")
-    public String userList(Model model){
-        model.addAttribute("uList",managerService.userList());
+    public String userList(Model model,@RequestParam(value="search", required=false,
+            defaultValue="null") String search){
+        Map<String, Object> modelMap = managerService.userList(search);
+        model.addAllAttributes(modelMap);
         return "manager/useradmin";
     }
     

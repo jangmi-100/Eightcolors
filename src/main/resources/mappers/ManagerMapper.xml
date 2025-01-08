@@ -16,9 +16,15 @@
 		select * from residence ORDER BY resid_no ASC;
 	</select>
 
-	<select id="userList" resultType="UserAdminDto">
-		select * from users ORDER BY user_no ASC;
-
+	<select id="userList" resultType="UserAdminDto" parameterType="map">
+		select * from users
+		<where>
+		<if test="search != 'null' and search != ''">
+			AND (id LIKE CONCAT('%', #{search}, '%')
+			OR name LIKE CONCAT('%', #{search}, '%'))
+		</if>
+		</where>
+		ORDER BY user_no ASC
 	</select>
 	
 	<select id="reservationList" resultType="ReservationDto">
